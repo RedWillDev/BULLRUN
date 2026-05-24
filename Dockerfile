@@ -5,4 +5,4 @@ EXPOSE 4321
 RUN apk update && apk add nodejs npm bash
 RUN npm ci
 RUN npm update npm -g
-ENTRYPOINT ["npx", "astro", "dev", "--host"]
+ENTRYPOINT ["npx", "astro", "dev", "--host 0.0.0.0"]
