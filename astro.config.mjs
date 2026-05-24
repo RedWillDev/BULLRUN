@@ -9,6 +9,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  server: {
+    host: true,
+    allowedHosts: 'all'
+  },
   integrations: [vue()]
 
 });
