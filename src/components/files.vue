@@ -10,7 +10,10 @@ const filterPrio = ref('ALL')
 async function loadCSV() {
   loading.value = true
   try {
-    const response = await fetch('/MARCHES_PUBLICS_FINAL.csv')
+    const response = await fetch(
+      `/MARCHES_PUBLICS_FINAL.csv?t=${Date.now()}`,
+      { cache: 'no-store' }
+    )
     const csvText = await response.text()
     const parsed = Papa.parse(csvText, {
       header: true,
