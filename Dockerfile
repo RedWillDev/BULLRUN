@@ -1,9 +1,10 @@
-FROM alpine:3.22.4
+FROM node:22-alpine
+
 WORKDIR /app
-COPY . .
-EXPOSE 4321
-RUN apk update && apk add nodejs npm bash
+COPY package*.json ./
 RUN npm ci
-RUN npm update npm -g
-RUN npm run build && cd dist/
-ENTRYPOINT ["npm", "start"]
+COPY . .
+RUN npm run build
+EXPOSE 4321
+USER node
+CMD ["npm", "start"]
