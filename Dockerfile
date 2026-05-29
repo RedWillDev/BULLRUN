@@ -13,4 +13,4 @@ EXPOSE 4321
 
 USER node
 
-CMD ["npm", "start"]
+CMD ["node", "dist/server/entry.mjs"]
